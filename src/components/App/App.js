@@ -12,8 +12,17 @@ class App extends Component {
   }
 
   addIdeaObj = (idea) => {
-    const ideas = [...this.state.ideas, idea];
+    const newIdea = {...idea, id: Date.now()};
+    const ideas = [...this.state.ideas, newIdea];
     this.setState({ ideas });
+  }
+
+  deleteIdea = (id) => {
+    const ideas = this.state.ideas.filter(idea => 
+      idea.id !== id
+    )
+
+    this.setState({ ideas })
   }
 
   render() {
@@ -27,6 +36,7 @@ class App extends Component {
         </header>
         <IdeaContainer 
           ideas={this.state.ideas}
+          deleteIdea={this.deleteIdea}
         />
       </div>
     );
