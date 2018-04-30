@@ -6,7 +6,7 @@ class IdeaForm extends Component {
     this.state = {
       title: '',
       body: '',
-      quality: 'swill'
+      quality: 'swill', 
     }
   }
 
@@ -17,10 +17,15 @@ class IdeaForm extends Component {
       [name]: value
     })
   }
+  
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addIdeaObj(this.state)
+  }
 
   render() {
     return(
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input 
           type="text"
           placeholder="title"
