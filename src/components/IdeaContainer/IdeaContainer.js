@@ -1,5 +1,6 @@
 import React from 'react';
 import IdeaCard from '../IdeaCard/IdeaCard';
+import PropTypes from 'prop-types';
 
 const IdeaContainer = ({ ideas, deleteIdea }) => {
 
@@ -18,6 +19,11 @@ const IdeaContainer = ({ ideas, deleteIdea }) => {
       {ideaCards}
     </div>
   )
+}
+
+IdeaContainer.propTypes = {
+  deleteIdea: PropTypes.func.isRequired,
+  ideas: PropTypes.array.isRequired
 }
 
 export default IdeaContainer;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class IdeaForm extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ class IdeaForm extends Component {
       </form>
     )
   }
+}
+
+IdeaForm.propTypes = {
+  addIdeaObj: PropTypes.func.isRequired
 }
 
 export default IdeaForm;
